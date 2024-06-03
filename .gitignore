@@ -2,3 +2,11 @@
 *__pycache__/
 *.vs/
 *.vscode/
+Debug
+
+*.pdb
+*.ilk
+*.tlog
+*.obj
+*.idb
+*.log
