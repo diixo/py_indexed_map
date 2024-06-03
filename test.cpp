@@ -3,7 +3,7 @@
 
 int main()
 {
-    CustomMap<std::string, int> custom_map;
+    CustomMap <std::string, int> custom_map;
     
     custom_map.insert("one", 1);
     custom_map.insert("two", 2);

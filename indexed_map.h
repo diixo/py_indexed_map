@@ -7,7 +7,7 @@
 #include <functional>
 #include <algorithm>
 #include <stdexcept>
-
+#include <string>
 //namespace py = pybind11;
 
 template<typename KeyType, typename ValueType>
@@ -65,9 +65,11 @@ public:
         return contains(key);
     }
 
+	/*
     py::iterable keys() const {
         return py::cast(keys);
     }
+	*/
 
 private:
     struct Comparator
