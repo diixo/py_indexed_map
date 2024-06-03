@@ -4,6 +4,7 @@
 *.vscode/
 build/
 Debug/
+*.pyd
 
 *.pdb
 *.ilk
