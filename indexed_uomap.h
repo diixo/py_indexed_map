@@ -60,6 +60,20 @@ public:
         return result;
     }
 
+    // Реализация оператора квадратных скобок
+    ValueType& operator[](const KeyType& key) {
+        auto it = map.find(key);
+        if (it != map.end()) {
+            return values[it->second];
+        } else {
+            keys.push_back(key);
+            values.push_back(ValueType());
+            size_t index = keys.size() - 1;
+            self.map[key] = index;
+            return values[index];
+        }
+    }
+
 private:
     std::unordered_map <KeyType, size_t> map;
     std::vector <KeyType> keys;

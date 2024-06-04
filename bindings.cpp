@@ -22,5 +22,13 @@ PYBIND11_MODULE(indexed_map, m)
         .def("get_value_by_index", &CustomMap<std::string, int>::get_value_by_index)
         .def("get_insertion_order", &CustomMap<std::string, int>::get_insertion_order)
         .def("__contains__", &CustomMap<std::string, int>::__contains__)
-        .def("__iter__", &CustomMap<std::string, int>::_keys);
+        .def("__iter__", &CustomMap<std::string, int>::_keys)
+
+        .def("__getitem__", [](CustomMap<std::string, int>& self, const std::string& key) -> int& {
+            return self[key];
+        })
+        .def("__setitem__", [](CustomMap<std::string, int>& self, const std::string& key, int value) {
+            self[key] = value;
+        });
+        //.def("print", &IndexedMap<int, std::string>::print);
 }

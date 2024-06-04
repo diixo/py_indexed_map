@@ -31,7 +31,7 @@ def main():
 
     # Получение ключа по индексу
     try:
-        print(f"Key at index 0: {imap.getKey('zero')}")
+        print(f"Key at index 0: {imap.get_key_by_index(0)}")
     except Exception as e:
         print(e)
 

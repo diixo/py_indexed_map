@@ -66,11 +66,25 @@ public:
         return contains(key);
     }
 
-
     py::iterable _keys() const {
         return py::cast(keys);
     }
 
+
+    // Реализация оператора квадратных скобок
+    ValueType& operator[](const KeyType& key) {
+        auto it = std::find(keys.begin(), keys.end(), key);
+        if (it != keys.end()) {
+            size_t index = std::distance(keys.begin(), it);
+            return values[index];
+        } else {
+            keys.push_back(key);
+            values.push_back(ValueType());
+            size_t index = keys.size() - 1;
+            map[index] = index;
+            return values[index];
+        }
+    }
 
 private:
     struct Comparator
